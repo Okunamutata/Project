@@ -1,62 +1,66 @@
-import java.util.Vector;
-import javax.swing.*;
+package project1;
+
+import java.util.Arrays;
+import java.util.LinkedList;
 
 
-public class List extends javax.swing.JFrame{
+public class List {
+	Node head;
+	static LinkedList<Item> theList = new <Item>LinkedList<Item>();
 	
-	
-	//fields 
-	private double itemPrice;
-	private int itemCount;
-	protected static String itemName;
-	public static Vector<String> items = new Vector<String>(5, 1);
-	
-	///Ui 
-	JTextField item = new JTextField("Enter the item name: ", 20);
-	JTextArea comments = new JTextArea("Notes",4, 15);
-	JButton add = new JButton("Add");
-	JButton remove = new JButton("Remove");
-	JScrollPane scroll = new JScrollPane(comments, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-	JLabel  itemLabel = new JLabel("Items");
-	JLabel addLabel = new JLabel("Add");
-	JLabel removeLabel = new JLabel("Remove");
-	
-	
-	
-	
-	
-	
-	///constructor
 	public List() {
-		super("Grocery List");
-		setSize(500, 900);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JPanel pane = new JPanel();
-		
-		
-		comments.setLineWrap(true);
-		comments.setWrapStyleWord(true);
-		
-		//pane.add(itemLabel);
-		//pane.add(addLabel);
-		pane.add(add);
-		//pane.add(removeLabel);
-		pane.add(remove);
-		pane.add(scroll);
-		add(pane);
-		setContentPane(pane);
-		setVisible(true);
-		
 		
 	}
 	
-
-	///main method
+	
+	
+	/*
+	public void append(Item theItem) {
+		if(head == null) {
+			head = new Node(theItem);
+			return;
+		}
+		Node current  = head;
+		while(current != null) {
+			current =  current.next;
+		}
+	}
+	
+	public void prepend(Item theItem) {
+		Node newHead = new Node(theItem);
+		newHead.next = head;
+		
+	}
+	
+	public void deleteWithValue(Item theItem) {
+		if(head == null) { return; }
+		if(head.item == theItem) {
+			head = head.next;
+			return;
+		}
+		
+		Node current =  head ;
+		while(current != null) {
+			if(current.next.item == theItem) {
+				current.next = current.next.next;
+				return;
+			}
+			else {
+				current = current.next;
+			}
+		}
+	}*/
+	
+	
+	
 	public static void main(String[] args) {
-		List li = new List();
+		Item appel = new Item("appel", "10.51");
+		theList.add(appel);
+		//System.out.println(theList);
+		
+		System.out.println(Arrays.toString(theList.toArray()));
+		
 		
 	}
-	
+
 }
